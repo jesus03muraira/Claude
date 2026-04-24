@@ -3,15 +3,18 @@ import { Sparkles, ChevronRight, Star } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[92vh] flex items-center">
-      {/* Fachada blurred as background */}
+      {/* Fachada full-bleed, sharp, with side gradient behind text */}
       <div className="absolute inset-0 -z-10">
         <img
           src={`${import.meta.env.BASE_URL}fachada.jpg`}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover blur-[2px] scale-[1.03]"
+          className="w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/30 to-white/50" />
+        {/* Left-to-right fade: opaque white on the left behind the text, fully transparent on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent md:via-white/80 md:to-transparent lg:from-white lg:via-white/75 lg:to-transparent" />
+        {/* Soft top-to-bottom fade so the navbar and stats area read clean */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/40" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
