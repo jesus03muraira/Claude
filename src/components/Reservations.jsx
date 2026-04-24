@@ -1,13 +1,19 @@
-import { useMemo, useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Check, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const SERVICES = [
-  'Corte de cabello',
-  'Tinte',
-  'Luces / Balayage',
-  'Maquillaje',
-  'Peinado',
-  'Tratamiento capilar',
+  { label: 'Cortes', price: 150 },
+  { label: 'Depilaciones', price: 200 },
+  { label: 'Peinados', price: 250 },
+  { label: 'Secados', price: 100 },
+  { label: 'Planchados', price: 180 },
+  { label: 'Manicure', price: 200 },
+  { label: 'Tratamiento de Chocolate', price: 450 },
+  { label: 'Tintes', price: 500 },
+  { label: 'Luces', price: 600 },
+  { label: 'Transparencias', price: 550 },
+  { label: 'Maquillaje', price: 350 },
+  { label: 'Extensión de pestañas', price: 500 },
 ]
 
 const TIMES = [
@@ -24,8 +30,8 @@ const DOW = ['lu', 'ma', 'mi', 'ju', 'vi', 'sá', 'do']
 
 function buildMonthGrid(year, month) {
   const firstOfMonth = new Date(year, month, 1)
-  const jsDow = firstOfMonth.getDay() // 0 = Sun
-  const offset = (jsDow + 6) % 7 // convert to Mon-start
+  const jsDow = firstOfMonth.getDay()
+  const offset = (jsDow + 6) % 7
   const daysInMonth = new Date(year, month + 1, 0).getDate()
   const daysInPrev = new Date(year, month, 0).getDate()
 
@@ -43,12 +49,86 @@ function buildMonthGrid(year, month) {
   return cells
 }
 
+function Dropdown({ value, onChange, placeholder, options, renderOption, disabled }) {
+  const [open, setOpen] = useState(false)
+  const wrapRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return
+    const onDoc = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false)
+    }
+    const onEsc = (e) => e.key === 'Escape' && setOpen(false)
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onEsc)
+    return () => {
+      document.removeEventListener('mousedown', onDoc)
+      document.removeEventListener('keydown', onEsc)
+    }
+  }, [open])
+
+  const selectedLabel = value ? renderOption(value, true) : null
+
+  return (
+    <div ref={wrapRef} className="relative">
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => setOpen((o) => !o)}
+        className={[
+          'w-full flex items-center justify-between gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left transition',
+          disabled ? 'opacity-60 cursor-not-allowed' : 'hover:border-neutral-300',
+          value ? 'text-neutral-900' : 'text-neutral-400',
+        ].join(' ')}
+      >
+        <span className="truncate">{selectedLabel ?? placeholder}</span>
+        <ChevronDown
+          className={`w-4 h-4 text-neutral-500 shrink-0 transition ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute z-20 mt-2 left-0 right-0 max-h-72 overflow-auto rounded-xl border border-neutral-100 bg-white shadow-soft py-1"
+        >
+          {options.map((opt, i) => {
+            const isSelected = value && (opt.key ?? opt.label ?? opt) === (value.key ?? value.label ?? value)
+            return (
+              <li key={opt.key ?? opt.label ?? opt ?? i}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onChange(opt)
+                    setOpen(false)
+                  }}
+                  className={[
+                    'w-full text-left px-4 py-2.5 text-sm transition flex items-center justify-between gap-3',
+                    isSelected
+                      ? 'bg-cream-100 text-brand-700 font-medium'
+                      : 'text-neutral-800 hover:bg-brand-50 hover:text-brand-700',
+                  ].join(' ')}
+                >
+                  <span className="truncate">{renderOption(opt, false)}</span>
+                  {isSelected && <Check className="w-4 h-4 text-brand-600 shrink-0" />}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+const fmtService = (s) => `${s.label} - $${s.price} MXN`
+
 export default function Reservations() {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   const [cursor, setCursor] = useState({ y: today.getFullYear(), m: today.getMonth() })
   const [selected, setSelected] = useState(null)
-  const [form, setForm] = useState({ service: '', time: '', name: '', email: '', phone: '' })
+  const [form, setForm] = useState({ service: null, time: null, name: '', email: '', phone: '' })
   const [sent, setSent] = useState(false)
 
   const grid = useMemo(() => buildMonthGrid(cursor.y, cursor.m), [cursor])
@@ -69,6 +149,7 @@ export default function Reservations() {
   }
 
   const isPast = (d) => d < today
+  const isSunday = (d) => d.getDay() === 0
 
   const submit = (e) => {
     e.preventDefault()
@@ -121,7 +202,7 @@ export default function Reservations() {
               </div>
               <div className="grid grid-cols-7 gap-1">
                 {grid.map((cell, i) => {
-                  const disabled = !cell.inMonth || isPast(cell.date)
+                  const disabled = !cell.inMonth || isPast(cell.date) || isSunday(cell.date)
                   const isSelected = selected && cell.date.toDateString() === selected.toDateString()
                   return (
                     <button
@@ -147,33 +228,25 @@ export default function Reservations() {
           <form onSubmit={submit} className="flex flex-col gap-4">
             <div>
               <label className="font-semibold text-neutral-900 block mb-2">Servicio</label>
-              <select
+              <Dropdown
                 value={form.service}
-                onChange={(e) => setForm({ ...form, service: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-700 focus:outline-none focus:ring-2 focus:ring-brand-400"
-              >
-                <option value="">Selecciona un servicio</option>
-                {SERVICES.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
+                onChange={(s) => setForm({ ...form, service: s })}
+                placeholder="Selecciona un servicio"
+                options={SERVICES}
+                renderOption={(s) => fmtService(s)}
+              />
             </div>
 
             <div>
               <label className="font-semibold text-neutral-900 block mb-2">Horario</label>
-              <select
+              <Dropdown
                 value={form.time}
-                onChange={(e) => setForm({ ...form, time: e.target.value })}
+                onChange={(t) => setForm({ ...form, time: t })}
+                placeholder={selected ? 'Selecciona un horario' : 'Primero selecciona una fecha'}
+                options={TIMES}
+                renderOption={(t) => t}
                 disabled={!selected}
-                className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-700 focus:outline-none focus:ring-2 focus:ring-brand-400 disabled:bg-neutral-50 disabled:text-neutral-400"
-              >
-                <option value="">
-                  {selected ? 'Selecciona un horario' : 'Primero selecciona una fecha'}
-                </option>
-                {TIMES.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
+              />
             </div>
 
             <input
