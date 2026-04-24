@@ -3,17 +3,14 @@ import { Sparkles, ChevronRight, Star } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[92vh] flex items-center">
-      {/* Fachada full-bleed, sharp, with gradients behind text */}
+      {/* Fachada full-bleed, sharp, with side gradient behind text */}
       <div className="absolute inset-0 -z-10">
         <img
           src={`${import.meta.env.BASE_URL}fachada.jpg`}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-top saturate-[1.15] contrast-[1.05]"
+          className="w-full h-full object-cover object-top"
         />
-        {/* Top stays at original brightness so the Victor's signage is legible;
-            bottom half gets a subtle dark fade so the lower content keeps the richer look. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/10" />
         {/* Left-to-right cream fade behind the text so the copy stays readable. */}
         <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-cream-50/80 to-transparent lg:via-cream-50/70 lg:to-transparent" />
       </div>
