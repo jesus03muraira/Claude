@@ -9,12 +9,10 @@ export default function Hero() {
           src={`${import.meta.env.BASE_URL}fachada.jpg`}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top brightness-90"
         />
-        {/* Left-to-right fade: opaque white on the left behind the text, fully transparent on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent md:via-white/80 md:to-transparent lg:from-white lg:via-white/75 lg:to-transparent" />
-        {/* Soft top-to-bottom fade so the navbar and stats area read clean */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/40" />
+        {/* Left-to-right fade: opaque cream on the left behind the text, fully transparent on the right — slightly less opaque so the photo keeps its richer tones */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-cream-50/80 to-transparent lg:via-cream-50/70 lg:to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
