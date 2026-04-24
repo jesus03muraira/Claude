@@ -156,7 +156,7 @@ export default function Testimonials() {
   return (
     <section id="testimonios" className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div>
+        <div className="text-center">
           <span className="badge-pill">Testimonios</span>
           <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900">
             Lo que dicen nuestros clientes

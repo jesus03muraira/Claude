@@ -9,7 +9,7 @@ const info = [
   {
     icon: Phone,
     title: 'Teléfono',
-    lines: ['+52 81 0000 0000', 'WhatsApp disponible'],
+    lines: ['81 8335 8704', 'WhatsApp disponible'],
   },
   {
     icon: Clock,
