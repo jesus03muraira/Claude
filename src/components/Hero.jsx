@@ -13,7 +13,7 @@ export default function Hero() {
         />
         {/* Top stays at original brightness so the Victor's signage is legible;
             bottom half gets a subtle dark fade so the lower content keeps the richer look. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/10" />
         {/* Left-to-right cream fade behind the text so the copy stays readable. */}
         <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-cream-50/80 to-transparent lg:via-cream-50/70 lg:to-transparent" />
       </div>
