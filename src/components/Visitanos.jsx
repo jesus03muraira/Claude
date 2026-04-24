@@ -32,8 +32,8 @@ export default function Visitanos() {
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <div className="rounded-3xl overflow-hidden shadow-card bg-neutral-100 aspect-[4/3]">
             <img
-              src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1000&q=80"
-              alt="Victor's Salón fachada"
+              src={`${import.meta.env.BASE_URL}local.jpg`}
+              alt="Victor's Salón vista de calle"
               className="w-full h-full object-cover"
             />
           </div>
