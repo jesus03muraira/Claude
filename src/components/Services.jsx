@@ -29,11 +29,11 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
           {services.map((s, i) => (
             <article
               key={i}
-              className="group relative rounded-3xl overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card"
+              className="group relative rounded-2xl overflow-hidden bg-neutral-100 aspect-square shadow-card"
             >
               <img
                 src={`${BASE}services/${encodeURIComponent(s.file.normalize('NFD'))}`}
@@ -41,9 +41,9 @@ export default function Services() {
                 className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <h3 className="text-xl font-bold text-white drop-shadow">
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-3">
+                <h3 className="text-sm md:text-base font-bold text-white drop-shadow">
                   {s.title}
                 </h3>
               </div>

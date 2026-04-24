@@ -2,9 +2,20 @@ import { Sparkles, ChevronRight, Star } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-hero-fade pt-28 pb-20 lg:pt-32 lg:pb-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+    <section className="relative overflow-hidden min-h-[92vh] flex items-center">
+      {/* Fachada blurred as background */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={`${import.meta.env.BASE_URL}fachada.jpg`}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover blur-md scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/70 to-white/80" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
+        <div className="max-w-3xl">
           <span className="badge-pill">
             <Sparkles className="w-4 h-4" />
             Salón Premium en San Pedro Garza García
@@ -15,7 +26,7 @@ export default function Hero() {
             <span className="text-brand-500 italic font-black">mejor</span>
           </h1>
 
-          <p className="mt-6 text-lg text-neutral-600 max-w-xl leading-relaxed">
+          <p className="mt-6 text-lg text-neutral-700 max-w-xl leading-relaxed">
             Descubre un espacio donde el estilo y la elegancia se encuentran.
             Expertos en cortes, tintes, maquillaje y tratamientos premium.
           </p>
@@ -28,50 +39,29 @@ export default function Hero() {
               Ver servicios
             </a>
           </div>
-
-          <dl className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
-            <div>
-              <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
-                10+
-              </dt>
-              <dd className="text-sm text-neutral-500 mt-1">Años de experiencia</dd>
-            </div>
-            <div>
-              <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
-                5000+
-              </dt>
-              <dd className="text-sm text-neutral-500 mt-1">Clientes felices</dd>
-            </div>
-            <div>
-              <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900 flex items-center gap-1">
-                4.9
-                <Star className="w-6 h-6 text-brand-400 fill-brand-400" />
-              </dt>
-              <dd className="text-sm text-neutral-500 mt-1">Estrellas</dd>
-            </div>
-          </dl>
         </div>
 
-        <div className="relative">
-          <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-soft bg-cream-100">
-            <img
-              src={`${import.meta.env.BASE_URL}fachada.jpg`}
-              alt="Victor's Salón fachada"
-              className="w-full h-full object-cover"
-            />
+        <dl className="mt-14 grid grid-cols-3 gap-6 max-w-xl">
+          <div>
+            <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
+              10+
+            </dt>
+            <dd className="text-sm text-neutral-600 mt-1">Años de experiencia</dd>
           </div>
-          <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-card px-5 py-4 flex items-center gap-3">
-            <div className="flex">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} className="w-4 h-4 text-brand-400 fill-brand-400" />
-              ))}
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-neutral-900">4.9 Estrellas</p>
-              <p className="text-xs text-neutral-500">Google Reviews</p>
-            </div>
+          <div>
+            <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
+              5000+
+            </dt>
+            <dd className="text-sm text-neutral-600 mt-1">Clientes felices</dd>
           </div>
-        </div>
+          <div>
+            <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900 flex items-center gap-1">
+              4.9
+              <Star className="w-6 h-6 text-brand-400 fill-brand-400" />
+            </dt>
+            <dd className="text-sm text-neutral-600 mt-1">Estrellas</dd>
+          </div>
+        </dl>
       </div>
     </section>
   )
