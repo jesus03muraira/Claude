@@ -1,101 +1,177 @@
-import { useRef } from 'react'
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Luis López',
-    meta: 'Hace un año',
-    initials: 'LL',
-    quote: 'Excelente servicio y profesionalismo, siempre muy atento el personal.',
+    name: 'Rodrigo Rubio',
+    meta: '9 opiniones · 3 fotos · Hace un año',
+    stars: 5,
+    quote: 'Buen lugar y siempre hay buena plática con Victor y Homero',
   },
   {
-    name: 'Cesar González',
-    meta: 'Local Guide · Hace 8 meses',
-    initials: 'CG',
-    quote: 'Excelente atención de Victor, nunca falla con sus cortes.',
+    name: 'Fernando Méndez',
+    meta: 'Local Guide · 234 opiniones · 8249 fotos · Hace 3 años',
+    stars: 5,
+    quote: 'Great hair cut and great conversations.',
   },
   {
-    name: 'Evelyn Córdoba',
-    meta: 'Hace un año',
-    initials: 'EC',
-    quote: 'Excelente lugar, muy buen servicio y personas amables :)',
+    name: 'Miguel A. Gonzalez 81',
+    meta: '1 opinión · Hace 5 años',
+    stars: 5,
+    quote: 'Excelente Servicio',
+  },
+  {
+    name: 'Karla Nohemi Almaguer Hernandez',
+    meta: 'Local Guide · 273 opiniones · 33 fotos · Hace 6 años',
+    stars: 4,
+    quote: 'Muy bien todo',
+  },
+  {
+    name: 'Alejandro',
+    meta: 'Local Guide · 21 opiniones · Hace 8 años',
+    stars: 5,
+    quote: '¡Hacen muuuy buenos cortes, mis felicitaciones!',
+  },
+  {
+    name: 'Leticia Molina',
+    meta: '6 opiniones · Hace 4 años',
+    stars: 5,
+    quote: 'Desde hace 20 años es mi favorito',
+  },
+  {
+    name: 'Martin Navarrete Villegas',
+    meta: 'Local Guide · 33 opiniones · 58 fotos · Hace 9 años',
+    stars: 4,
+    quote: 'Buen servicio.',
+  },
+  {
+    name: 'Recursos Humanos',
+    meta: '13 opiniones · Hace 6 años',
+    stars: 5,
+    quote: 'Verdaderos profesionales a un precio justo',
+  },
+  {
+    name: 'Adrian Santillana Sanchez',
+    meta: '7 opiniones · Hace 6 años',
+    stars: 5,
+    quote: 'Atención, servicio, limpieza y calidad',
+  },
+  {
+    name: 'Ricardo Menchaca',
+    meta: 'Local Guide · 149 opiniones · 89 fotos · Hace 3 años',
+    stars: 4,
+    quote: 'Great service!',
+  },
+  {
+    name: 'Antoine Calderon',
+    meta: '1 opinión · Hace 9 años',
+    stars: 5,
+    quote: 'BIEN',
+  },
+  {
+    name: 'sofia vantolra',
+    meta: '2 opiniones · 1 foto · Hace 3 años',
+    stars: 5,
+    quote: null,
+  },
+  {
+    name: 'EVELYN Salas',
+    meta: 'Hace 3 años',
+    stars: 5,
+    quote: null,
+  },
+  {
+    name: 'Diana Barrera',
+    meta: '8 opiniones · Editado hace 3 años',
+    stars: 5,
+    quote: null,
+  },
+  {
+    name: 'Victoria Giselle Córdoba Salas',
+    meta: 'Nueva · Hace 2 semanas',
+    stars: 5,
+    quote: null,
+  },
+  {
+    name: 'isabela Córdoba',
+    meta: '1 foto · Hace 2 años',
+    stars: 5,
+    quote: null,
   },
   {
     name: 'Hildemar Zamora',
-    meta: 'Local Guide · Hace 2 años',
-    initials: 'HZ',
-    quote: 'Excelente servicio, el personal muy amable y precios accesibles.',
+    meta: 'Local Guide · 10 opiniones · 4 fotos · Hace 2 años',
+    stars: 5,
+    quote: null,
   },
   {
-    name: 'Ana Rodríguez',
-    meta: 'Hace 6 meses',
-    initials: 'AR',
-    quote: 'Me encantó el resultado del tinte, súper recomendado. Volveré pronto.',
+    name: 'Santiago Frech',
+    meta: '3 opiniones · Hace 2 años',
+    stars: 5,
+    quote: null,
   },
 ]
 
-export default function Testimonials() {
-  const ref = useRef(null)
+const getInitials = (name) => {
+  const parts = name.trim().split(/\s+/)
+  return ((parts[0]?.[0] ?? '') + (parts[1]?.[0] ?? '')).toUpperCase()
+}
 
-  const scroll = (dir) => {
-    if (!ref.current) return
-    const w = ref.current.clientWidth
-    ref.current.scrollBy({ left: dir * w * 0.8, behavior: 'smooth' })
-  }
+function Card({ t }) {
+  return (
+    <article className="shrink-0 w-[320px] sm:w-[360px] rounded-3xl border border-neutral-100 bg-white p-6 shadow-card">
+      <div className="flex gap-1 mb-4">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star
+            key={i}
+            className={`w-4 h-4 ${
+              i < t.stars ? 'text-brand-400 fill-brand-400' : 'text-neutral-200 fill-neutral-200'
+            }`}
+          />
+        ))}
+      </div>
+      {t.quote ? (
+        <p className="text-neutral-700 leading-relaxed min-h-[4.5rem]">"{t.quote}"</p>
+      ) : (
+        <p className="text-neutral-400 italic leading-relaxed min-h-[4.5rem]">
+          Sin comentario
+        </p>
+      )}
+      <div className="mt-6 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-cream-100 text-brand-700 font-bold flex items-center justify-center">
+          {getInitials(t.name)}
+        </div>
+        <div>
+          <p className="font-semibold text-neutral-900 text-sm">{t.name}</p>
+          <p className="text-xs text-neutral-500">{t.meta}</p>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+export default function Testimonials() {
+  // Duplicate list so the CSS marquee loop is seamless (animation moves -50%)
+  const loop = [...testimonials, ...testimonials]
 
   return (
     <section id="testimonios" className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <span className="badge-pill">Testimonios</span>
-            <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900">
-              Lo que dicen nuestros clientes
-            </h2>
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll(-1)}
-              className="w-11 h-11 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll(1)}
-              className="w-11 h-11 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50"
-              aria-label="Siguiente"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        <div>
+          <span className="badge-pill">Testimonios</span>
+          <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900">
+            Lo que dicen nuestros clientes
+          </h2>
         </div>
+      </div>
 
-        <div
-          ref={ref}
-          className="mt-12 flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2"
-        >
-          {testimonials.map((t) => (
-            <article
-              key={t.name}
-              className="snap-start shrink-0 w-[85%] sm:w-[46%] lg:w-[24%] rounded-3xl border border-neutral-100 bg-white p-6 shadow-card"
-            >
-              <div className="flex gap-1 mb-4">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="w-4 h-4 text-brand-400 fill-brand-400" />
-                ))}
-              </div>
-              <p className="text-neutral-700 leading-relaxed">"{t.quote}"</p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-cream-100 text-brand-700 font-bold flex items-center justify-center">
-                  {t.initials}
-                </div>
-                <div>
-                  <p className="font-semibold text-neutral-900 text-sm">{t.name}</p>
-                  <p className="text-xs text-neutral-500">{t.meta}</p>
-                </div>
-              </div>
-            </article>
+      <div className="marquee-wrapper mt-12 overflow-hidden relative">
+        {/* Edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+
+        <div className="marquee-track flex gap-5 pl-6 pr-6">
+          {loop.map((t, i) => (
+            <Card key={i} t={t} />
           ))}
         </div>
       </div>

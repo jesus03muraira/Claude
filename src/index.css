@@ -35,3 +35,16 @@
 /* Hide scrollbar on carousel */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Marquee auto-scroll for testimonials */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  animation: marquee-x 80s linear infinite;
+  width: max-content;
+}
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
