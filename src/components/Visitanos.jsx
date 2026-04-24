@@ -32,7 +32,7 @@ export default function Visitanos() {
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <div className="rounded-3xl overflow-hidden shadow-card bg-neutral-100 aspect-[4/3]">
             <img
-              src={`${import.meta.env.BASE_URL}local.jpg`}
+              src={`${import.meta.env.BASE_URL}${encodeURIComponent('Screen Shot 2026-04-15 at 23.04.10.png')}`}
               alt="Victor's Salón vista de calle"
               className="w-full h-full object-cover"
             />
