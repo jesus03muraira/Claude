@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Menu, X, Scissors } from 'lucide-react'
 
+const BASE = import.meta.env.BASE_URL
+
 const links = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#testimonios', label: 'Testimonios' },
@@ -15,6 +17,11 @@ export default function Navbar() {
     <header className="absolute top-0 inset-x-0 z-50">
       <nav className="mx-auto max-w-7xl px-6 lg:px-10 py-5 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
+          <img
+            src={`${BASE}logo.jpg`}
+            alt="Victor's"
+            className="h-10 w-auto object-contain"
+          />
           <Scissors className="w-6 h-6 text-neutral-900" strokeWidth={2.25} />
           <span className="font-extrabold tracking-wider text-neutral-900 text-lg">
             VICTOR'S

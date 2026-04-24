@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="relative">
           <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-soft bg-cream-100">
             <img
-              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80"
+              src={`${import.meta.env.BASE_URL}fachada.jpg`}
               alt="Victor's Salón fachada"
               className="w-full h-full object-cover"
             />
