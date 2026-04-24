@@ -9,9 +9,9 @@ export default function Hero() {
           src={`${import.meta.env.BASE_URL}fachada.jpg`}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover blur-md scale-110"
+          className="w-full h-full object-cover blur-[2px] scale-[1.03]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/70 to-white/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/30 to-white/50" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
