@@ -9,6 +9,11 @@ const services = [
   { title: 'Peinados', file: 'Peinados.jpg' },
   { title: 'Tintes', file: 'Tintes.jpg' },
   { title: 'Tratamiento Chocolate', file: 'Tratamiento chocolate.png' },
+  { title: 'Secados', file: 'Secados.jpg' },
+  { title: 'Planchados', file: 'Planchados.jpg' },
+  { title: 'Manicure', file: 'Manicure.jpg' },
+  { title: 'Luces', file: 'Luces.jpg' },
+  { title: 'Extensión de pestañas', file: 'Pestanas.jpg' },
 ]
 
 export default function Services() {
