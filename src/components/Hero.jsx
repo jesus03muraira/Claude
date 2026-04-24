@@ -27,7 +27,7 @@ export default function Hero() {
             <span className="text-brand-500 italic font-black">mejor</span>
           </h1>
 
-          <p className="mt-6 text-lg text-neutral-700 max-w-xl leading-relaxed">
+          <p className="mt-6 text-lg text-black max-w-xl leading-relaxed font-medium">
             Descubre un espacio donde el estilo y la elegancia se encuentran.
             Expertos en cortes, tintes, maquillaje y tratamientos premium.
           </p>
@@ -47,20 +47,20 @@ export default function Hero() {
             <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
               10+
             </dt>
-            <dd className="text-sm text-neutral-600 mt-1">Años de experiencia</dd>
+            <dd className="text-sm text-black font-medium mt-1">Años de experiencia</dd>
           </div>
           <div>
             <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
               5000+
             </dt>
-            <dd className="text-sm text-neutral-600 mt-1">Clientes felices</dd>
+            <dd className="text-sm text-black font-medium mt-1">Clientes felices</dd>
           </div>
           <div>
             <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900 flex items-center gap-1">
               4.9
               <Star className="w-6 h-6 text-brand-400 fill-brand-400" />
             </dt>
-            <dd className="text-sm text-neutral-600 mt-1">Estrellas</dd>
+            <dd className="text-sm text-black font-medium mt-1">Estrellas</dd>
           </div>
         </dl>
       </div>
