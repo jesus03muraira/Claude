@@ -1,11 +1,14 @@
 const BASE = import.meta.env.BASE_URL
 
 const services = [
-  { title: 'Transparencias', img: `${BASE}services/transparencias.jpg` },
-  { title: 'Corte', img: `${BASE}services/cortemujer.jpg` },
-  { title: 'Corte', img: `${BASE}services/cortehombre.jpg` },
-  { title: 'Depilación', img: `${BASE}services/depilacion.jpg` },
-  { title: 'Maquillaje', img: `${BASE}services/maquillaje.jpg` },
+  { title: 'Transparencias', file: 'Transparencias.jpg' },
+  { title: 'Corte', file: 'Cortemujer.png' },
+  { title: 'Corte', file: 'Cortehombre.png' },
+  { title: 'Depilación', file: 'Depilacion.jpg' },
+  { title: 'Maquillaje', file: 'Maquillaje.jpg' },
+  { title: 'Peinados', file: 'Peinados.jpg' },
+  { title: 'Tintes', file: 'Tintes.jpg' },
+  { title: 'Tratamiento Chocolate', file: 'Tratamiento chocolate.png' },
 ]
 
 export default function Services() {
@@ -21,14 +24,14 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
             <article
               key={i}
               className="group relative rounded-3xl overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card"
             >
               <img
-                src={s.img}
+                src={`${BASE}services/${encodeURIComponent(s.file)}`}
                 alt={s.title}
                 className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
