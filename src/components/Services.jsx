@@ -36,7 +36,7 @@ export default function Services() {
               className="group relative rounded-3xl overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card"
             >
               <img
-                src={`${BASE}services/${encodeURIComponent(s.file)}`}
+                src={`${BASE}services/${encodeURIComponent(s.file.normalize('NFD'))}`}
                 alt={s.title}
                 className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
