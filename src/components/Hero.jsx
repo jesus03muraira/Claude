@@ -9,7 +9,7 @@ export default function Hero() {
           src={`${import.meta.env.BASE_URL}fachada.jpg`}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-top brightness-75"
+          className="w-full h-full object-cover object-top brightness-95 saturate-[1.15] contrast-[1.05]"
         />
         {/* Left-to-right fade: opaque cream on the left behind the text, fully transparent on the right — slightly less opaque so the photo keeps its richer tones */}
         <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-cream-50/80 to-transparent lg:via-cream-50/70 lg:to-transparent" />
