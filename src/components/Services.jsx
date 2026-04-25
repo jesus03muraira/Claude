@@ -37,8 +37,15 @@ function ServiceCard({ s, idx }) {
     return () => obs.disconnect()
   }, [])
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault()
     window.dispatchEvent(new CustomEvent('select-service', { detail: s.book }))
+    const target = document.getElementById('reservaciones-form')
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      window.location.hash = '#reservaciones'
+    }
   }
 
   return (

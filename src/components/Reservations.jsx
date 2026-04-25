@@ -178,7 +178,10 @@ export default function Reservations() {
           </p>
         </div>
 
-        <div className="mt-12 bg-white rounded-3xl shadow-soft border border-neutral-100 p-6 md:p-10 grid md:grid-cols-2 gap-10">
+        <div
+          id="reservaciones-form"
+          className="mt-12 bg-white rounded-3xl shadow-soft border border-neutral-100 p-6 md:p-10 grid md:grid-cols-2 gap-10 scroll-mt-24"
+        >
           {/* Calendar */}
           <div>
             <p className="font-semibold text-neutral-900 mb-4">Selecciona una fecha</p>
