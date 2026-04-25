@@ -170,7 +170,7 @@ export default function Reservations() {
   return (
     <section id="reservaciones" className="py-20 lg:py-28 bg-cream-50">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="text-center">
+        <div id="reservaciones-anchor" className="text-center scroll-mt-24">
           <span className="badge-pill">Reservaciones</span>
           <h2 className="section-title mt-4">Agenda tu cita</h2>
           <p className="section-subtitle mt-4">

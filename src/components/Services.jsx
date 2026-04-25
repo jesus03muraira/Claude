@@ -40,7 +40,9 @@ function ServiceCard({ s, idx }) {
   const handleClick = (e) => {
     e.preventDefault()
     window.dispatchEvent(new CustomEvent('select-service', { detail: s.book }))
-    const target = document.getElementById('reservaciones-form')
+    const target =
+      document.getElementById('reservaciones-anchor') ||
+      document.getElementById('reservaciones-form')
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
