@@ -1,12 +1,15 @@
 import { Sparkles, ChevronRight, Star } from 'lucide-react'
 
+// Switch this to revert: 'fachada.jpg' (calle original) | 'fachada2.jpg' (nueva al atardecer)
+const HERO_IMAGE = 'fachada2.jpg'
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[92vh] flex items-center">
       {/* Fachada full-bleed, sharp, with side gradient behind text */}
       <div className="absolute inset-0 -z-10">
         <img
-          src={`${import.meta.env.BASE_URL}fachada.jpg`}
+          src={`${import.meta.env.BASE_URL}${HERO_IMAGE}`}
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-top"
