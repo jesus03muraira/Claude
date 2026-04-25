@@ -14,8 +14,8 @@ export default function Hero() {
           aria-hidden="true"
           className="w-full h-full object-cover object-top"
         />
-        {/* Narrow left cream fade just behind the text block; most of the photo stays untouched. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/80 from-0% via-cream-50/40 via-28% to-transparent to-52%" />
+        {/* Cream halo on the left half; fully transparent at the midline so the right half stays in its original color. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/85 from-0% via-cream-50/45 via-22% to-transparent to-50%" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
