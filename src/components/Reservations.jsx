@@ -133,6 +133,16 @@ export default function Reservations() {
 
   const grid = useMemo(() => buildMonthGrid(cursor.y, cursor.m), [cursor])
 
+  useEffect(() => {
+    const handler = (e) => {
+      const label = e.detail
+      const match = SERVICES.find((s) => s.label === label)
+      if (match) setForm((f) => ({ ...f, service: match }))
+    }
+    window.addEventListener('select-service', handler)
+    return () => window.removeEventListener('select-service', handler)
+  }, [])
+
   const prevMonth = () => {
     setCursor((c) => {
       const m = c.m - 1
