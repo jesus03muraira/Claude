@@ -15,7 +15,7 @@ export default function Hero() {
           className="w-full h-full object-cover object-top"
         />
         {/* Narrow left cream fade just behind the text block; most of the photo stays untouched. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/95 from-0% via-cream-50/40 via-30% to-transparent to-55%" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream-50 from-0% via-cream-50/65 via-35% to-transparent to-60%" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
@@ -25,12 +25,12 @@ export default function Hero() {
             Salón Premium en San Pedro Garza García
           </span>
 
-          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-neutral-900">
+          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-neutral-900 [text-shadow:0_2px_18px_rgba(255,255,255,0.7)]">
             Tu belleza merece lo{' '}
-            <span className="text-brand-500 italic font-black">mejor</span>
+            <span className="text-brand-500 italic font-black [text-shadow:0_2px_18px_rgba(255,255,255,0.5)]">mejor</span>
           </h1>
 
-          <p className="mt-6 text-lg text-black max-w-xl leading-relaxed font-medium">
+          <p className="mt-6 text-lg text-black max-w-xl leading-relaxed font-medium [text-shadow:0_1px_10px_rgba(255,255,255,0.7)]">
             Descubre un espacio donde el estilo y la elegancia se encuentran.
             Expertos en cortes, tintes, maquillaje y tratamientos premium.
           </p>
@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <dl className="mt-14 grid grid-cols-3 gap-6 max-w-xl">
+        <dl className="mt-14 grid grid-cols-3 gap-6 max-w-xl [&_dt]:[text-shadow:0_1px_10px_rgba(255,255,255,0.7)] [&_dd]:[text-shadow:0_1px_8px_rgba(255,255,255,0.7)]">
           <div>
             <dt className="text-3xl md:text-4xl font-extrabold text-neutral-900">
               10+
