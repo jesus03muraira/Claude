@@ -29,13 +29,31 @@ export default function Footer() {
         <div>
           <p className="text-white font-semibold mb-3">Síguenos</p>
           <div className="flex gap-3">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a
+              href="https://www.instagram.com/victors.peluqueria/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+            >
               <FaInstagram className="w-5 h-5" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a
+              href="https://www.facebook.com/p/VICTORS-Sal%C3%B3n-Peluquer%C3%ADa-100067310928792/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+            >
               <FaFacebookF className="w-4 h-4" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a
+              href="https://wa.me/528183358704"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+            >
               <FaWhatsapp className="w-5 h-5" />
             </a>
           </div>
