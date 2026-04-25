@@ -15,7 +15,7 @@ export default function Hero() {
           className="w-full h-full object-cover object-top"
         />
         {/* Narrow left cream fade just behind the text block; most of the photo stays untouched. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/90 from-0% via-cream-50/50 via-32% to-transparent to-58%" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/55 from-0% via-cream-50/25 via-22% to-transparent to-45%" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
