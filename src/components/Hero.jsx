@@ -1,7 +1,7 @@
 import { Sparkles, ChevronRight, Star } from 'lucide-react'
 
-// Switch this to revert: 'fachada.jpg' (calle original) | 'fachada2.jpg' (nueva al atardecer)
-const HERO_IMAGE = 'fachada2.jpg'
+// Switch this to revert: 'fachada.jpg' (calle original) | '9e2cc2b2-8368-4042-87f6-d6ae5a7a3288.jpg' (nueva al atardecer)
+const HERO_IMAGE = '9e2cc2b2-8368-4042-87f6-d6ae5a7a3288.jpg'
 
 export default function Hero() {
   return (
