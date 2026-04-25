@@ -34,7 +34,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 hover:text-white transition-colors flex items-center justify-center"
             >
               <FaInstagram className="w-5 h-5" />
             </a>
@@ -43,7 +43,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 hover:text-white transition-colors flex items-center justify-center"
             >
               <FaFacebookF className="w-4 h-4" />
             </a>
@@ -52,7 +52,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 hover:text-white transition-colors flex items-center justify-center"
             >
               <FaWhatsapp className="w-5 h-5" />
             </a>
