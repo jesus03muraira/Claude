@@ -89,7 +89,7 @@ function ServiceCard({ s, idx }) {
 
 export default function Services() {
   return (
-    <section id="servicios" className="py-20 lg:py-28 bg-white">
+    <section id="servicios" className="py-20 lg:py-28 bg-cream-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">Nuestros Servicios</span>

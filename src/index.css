@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans text-neutral-800 antialiased bg-white;
+    @apply font-sans text-neutral-800 antialiased bg-cream-50;
   }
   h1, h2, h3, h4 {
     @apply font-display tracking-tight text-neutral-900;

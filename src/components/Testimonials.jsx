@@ -154,7 +154,7 @@ export default function Testimonials() {
   const loop = [...testimonials, ...testimonials]
 
   return (
-    <section id="testimonios" className="py-20 lg:py-28 bg-white">
+    <section id="testimonios" className="py-20 lg:py-28 bg-cream-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">Testimonios</span>
@@ -166,8 +166,8 @@ export default function Testimonials() {
 
       <div className="marquee-wrapper mt-12 overflow-hidden relative">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream-50 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream-50 to-transparent z-10" />
 
         <div className="marquee-track flex gap-5 pl-6 pr-6">
           {loop.map((t, i) => (
