@@ -111,7 +111,7 @@ export default function Services() {
   }, [paused])
 
   return (
-    <section id="servicios" className="py-20 lg:py-28 bg-cream-50">
+    <section id="servicios" className="py-20 lg:py-28 bg-[#E8DBC3]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">Nuestros Servicios</span>
