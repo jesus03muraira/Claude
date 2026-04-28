@@ -35,7 +35,7 @@ function ServiceCard({ s }) {
     <a
       href="#reservaciones"
       onClick={handleClick}
-      className="group relative block rounded-3xl overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card border border-transparent transition-all duration-500 ease-out will-change-transform hover:-translate-y-1 hover:shadow-soft hover:border-brand-300"
+      className="group relative block overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card border border-transparent transition-all duration-500 ease-out will-change-transform hover:-translate-y-1 hover:shadow-soft hover:border-brand-300"
     >
       <img
         src={`${BASE}services/${encodeURIComponent(s.file.normalize('NFD'))}`}
@@ -89,6 +89,12 @@ export default function Services() {
     el.scrollBy({ left: dir * card.offsetWidth, behavior: 'smooth' })
   }
 
+  const scrollByPage = (dir) => {
+    const el = trackRef.current
+    if (!el) return
+    el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' })
+  }
+
   useEffect(() => {
     if (paused) return
     const id = setInterval(() => {
@@ -98,9 +104,9 @@ export default function Services() {
       if (el.scrollLeft >= max - 8) {
         el.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollByCard(1)
+        scrollByPage(1)
       }
-    }, 4500)
+    }, 3000)
     return () => clearInterval(id)
   }, [paused])
 
