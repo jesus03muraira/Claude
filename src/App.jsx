@@ -6,6 +6,7 @@ import Testimonials from './components/Testimonials'
 import Visitanos from './components/Visitanos'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import WhatsAppFab from './components/WhatsAppFab'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <FAQ />
       </main>
       <Footer />
+      <WhatsAppFab />
     </>
   )
 }

@@ -66,8 +66,12 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-8 text-neutral-800 font-medium">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="hover:text-neutral-950 transition">
+                <a
+                  href={l.href}
+                  className="group relative pb-1 hover:text-neutral-950 transition-colors"
+                >
                   {l.label}
+                  <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-brand-500 transition-all duration-300 ease-out group-hover:w-full" />
                 </a>
               </li>
             ))}
