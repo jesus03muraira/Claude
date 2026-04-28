@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -19,30 +19,11 @@ const services = [
   { title: 'Extensión de pestañas', file: 'extensión de pestañas .jpg', book: 'Extensión de pestañas' },
 ]
 
-function ServiceCard({ s, idx }) {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          obs.disconnect()
-        }
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
-
+function ServiceCard({ s }) {
   const handleClick = (e) => {
     e.preventDefault()
     window.dispatchEvent(new CustomEvent('select-service', { detail: s.book }))
-    const target =
-      document.getElementById('reservaciones-anchor') ||
-      document.getElementById('reservaciones-form')
+    const target = document.getElementById('reservaciones-anchor')
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
@@ -52,16 +33,9 @@ function ServiceCard({ s, idx }) {
 
   return (
     <a
-      ref={ref}
       href="#reservaciones"
       onClick={handleClick}
-      style={{ transitionDelay: `${(idx % 6) * 70}ms` }}
-      className={[
-        'group relative rounded-2xl overflow-hidden bg-neutral-100 aspect-square shadow-card border border-transparent',
-        'transition-all duration-700 ease-out will-change-transform',
-        'hover:-translate-y-1 hover:shadow-soft hover:border-brand-300',
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
-      ].join(' ')}
+      className="group relative block rounded-3xl overflow-hidden bg-neutral-100 aspect-[3/4] shadow-card border border-transparent transition-all duration-500 ease-out will-change-transform hover:-translate-y-1 hover:shadow-soft hover:border-brand-300"
     >
       <img
         src={`${BASE}services/${encodeURIComponent(s.file.normalize('NFD'))}`}
@@ -69,25 +43,67 @@ function ServiceCard({ s, idx }) {
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:brightness-[0.78]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent transition duration-500 group-hover:from-neutral-900/90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/20 to-transparent transition duration-500 group-hover:from-neutral-900/90" />
 
-      <div className="absolute inset-x-0 bottom-0 p-3 transition duration-500 group-hover:-translate-y-1">
-        <h3 className="font-elegant text-sm md:text-base font-bold text-white drop-shadow">
+      <div className="absolute inset-x-0 bottom-0 p-6 transition duration-500 group-hover:-translate-y-1">
+        <h3 className="font-elegant text-2xl md:text-3xl font-bold text-white drop-shadow">
           {s.title}
         </h3>
       </div>
 
-      {/* Reservar button — appears on hover */}
-      <div className="absolute top-3 right-3 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-        <span className="inline-flex items-center gap-1 rounded-full bg-brand-500 text-white px-3 py-1.5 text-xs font-semibold shadow-soft">
-          Reservar <ArrowRight className="w-3 h-3" />
+      <div className="absolute top-4 right-4 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+        <span className="inline-flex items-center gap-1 rounded-full bg-brand-500 text-white px-4 py-2 text-sm font-semibold shadow-soft">
+          Reservar <ArrowRight className="w-4 h-4" />
         </span>
       </div>
     </a>
   )
 }
 
+function Arrow({ side, onClick }) {
+  const isLeft = side === 'left'
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={isLeft ? 'Anterior' : 'Siguiente'}
+      className={[
+        'hidden md:flex absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-soft items-center justify-center text-neutral-800 hover:bg-brand-50 hover:text-brand-700 transition',
+        isLeft ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2',
+      ].join(' ')}
+    >
+      {isLeft ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+    </button>
+  )
+}
+
 export default function Services() {
+  const trackRef = useRef(null)
+  const [paused, setPaused] = useState(false)
+
+  const scrollByCard = (dir) => {
+    const el = trackRef.current
+    if (!el) return
+    const card = el.firstElementChild
+    if (!card) return
+    el.scrollBy({ left: dir * card.offsetWidth, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => {
+      const el = trackRef.current
+      if (!el) return
+      const max = el.scrollWidth - el.clientWidth
+      if (el.scrollLeft >= max - 8) {
+        el.scrollTo({ left: 0, behavior: 'smooth' })
+      } else {
+        scrollByCard(1)
+      }
+    }, 4500)
+    return () => clearInterval(id)
+  }, [paused])
+
   return (
     <section id="servicios" className="py-20 lg:py-28 bg-cream-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -100,10 +116,27 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-          {services.map((s, i) => (
-            <ServiceCard key={i} s={s} idx={i} />
-          ))}
+        <div
+          className="relative mt-14"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <Arrow side="left" onClick={() => scrollByCard(-1)} />
+          <Arrow side="right" onClick={() => scrollByCard(1)} />
+
+          <div
+            ref={trackRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-2.5"
+          >
+            {services.map((s, i) => (
+              <div
+                key={i}
+                className="snap-start shrink-0 w-full sm:w-1/2 lg:w-1/3 px-2.5"
+              >
+                <ServiceCard s={s} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
