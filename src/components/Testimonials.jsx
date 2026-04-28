@@ -161,23 +161,16 @@ export default function Testimonials() {
       className="py-20 lg:py-28 relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${BASE}clientesfoto.jpg)` }}
     >
-      {/* Soft cream overlay so the heading and cards stay readable */}
-      <div className="absolute inset-0 bg-cream-50/75 backdrop-blur-[2px]" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">Testimonios</span>
-          <h2 className="mt-4 font-elegant text-4xl md:text-6xl font-bold tracking-tight text-neutral-900">
+          <h2 className="mt-4 font-elegant text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 [text-shadow:0_2px_18px_rgba(255,255,255,0.7),0_1px_2px_rgba(255,255,255,0.6)]">
             Lo que dicen nuestros clientes
           </h2>
         </div>
       </div>
 
       <div className="marquee-wrapper relative z-10 mt-12 overflow-hidden">
-        {/* Edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream-50/80 to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream-50/80 to-transparent z-10" />
-
         <div className="marquee-track flex gap-5 pl-6 pr-6">
           {loop.map((t, i) => (
             <Card key={i} t={t} />
