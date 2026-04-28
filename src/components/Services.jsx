@@ -104,7 +104,7 @@ export default function Services() {
       if (el.scrollLeft >= max - 8) {
         el.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollByPage(1)
+        scrollByCard(1)
       }
     }, 3000)
     return () => clearInterval(id)
