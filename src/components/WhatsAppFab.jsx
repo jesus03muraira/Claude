@@ -7,14 +7,9 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contáctanos por WhatsApp"
-      className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 inline-flex items-center justify-center"
+      className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-soft transition-transform duration-200 hover:scale-110"
     >
-      {/* Soft pulsing ring */}
-      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping" />
-      {/* Button */}
-      <span className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-soft transition-transform duration-200 group-hover:scale-110">
-        <FaWhatsapp className="w-7 h-7 sm:w-8 sm:h-8" />
-      </span>
+      <FaWhatsapp className="w-7 h-7 sm:w-8 sm:h-8" />
     </a>
   )
 }
