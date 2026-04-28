@@ -25,10 +25,10 @@
     @apply inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700;
   }
   .section-title {
-    @apply text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900;
+    @apply font-elegant text-4xl md:text-5xl font-bold tracking-tight text-neutral-900;
   }
   .section-subtitle {
-    @apply text-neutral-600 text-lg max-w-2xl mx-auto;
+    @apply font-elegant text-neutral-600 text-lg max-w-2xl mx-auto;
   }
 }
 

@@ -72,7 +72,7 @@ function ServiceCard({ s, idx }) {
       <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent transition duration-500 group-hover:from-neutral-900/90" />
 
       <div className="absolute inset-x-0 bottom-0 p-3 transition duration-500 group-hover:-translate-y-1">
-        <h3 className="text-sm md:text-base font-bold text-white drop-shadow">
+        <h3 className="font-elegant text-sm md:text-base font-bold text-white drop-shadow">
           {s.title}
         </h3>
       </div>

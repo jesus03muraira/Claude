@@ -39,7 +39,7 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? -1 : i)}
-                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-neutral-900"
+                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-elegant text-lg font-semibold text-neutral-900"
               >
                 {f.q}
                 <ChevronDown
@@ -47,7 +47,7 @@ export default function FAQ() {
                 />
               </button>
               {open === i && (
-                <div className="px-5 pb-5 text-neutral-600">{f.a}</div>
+                <div className="px-5 pb-5 font-elegant text-neutral-700 text-base leading-relaxed">{f.a}</div>
               )}
             </div>
           ))}

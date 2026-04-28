@@ -158,7 +158,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">Testimonios</span>
-          <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900">
+          <h2 className="mt-4 font-elegant text-4xl md:text-6xl font-bold tracking-tight text-neutral-900">
             Lo que dicen nuestros clientes
           </h2>
         </div>
