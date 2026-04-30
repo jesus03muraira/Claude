@@ -35,7 +35,7 @@ export default function FAQ() {
           {faqs.map((f, i) => (
             <div
               key={f.q}
-              className="rounded-2xl border border-neutral-100 bg-cream-50 overflow-hidden"
+              className="rounded-2xl border border-[#D4BFA0]/40 bg-[#DCC9A8] overflow-hidden"
             >
               <button
                 onClick={() => setOpen(open === i ? -1 : i)}
