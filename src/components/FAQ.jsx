@@ -24,7 +24,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-cream-50">
+    <section id="faq" className="py-20 lg:py-28 bg-[#E8DBC3]">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div className="text-center">
           <span className="badge-pill">FAQ</span>
