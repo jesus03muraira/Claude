@@ -158,7 +158,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonios"
-      className="py-20 lg:py-28 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="pt-10 lg:pt-14 pb-20 lg:pb-28 relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${BASE}clientesfoto.jpg)` }}
     >
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
@@ -170,7 +170,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="marquee-wrapper relative z-10 mt-12 overflow-hidden">
+      <div className="marquee-wrapper relative z-10 mt-16 lg:mt-20 overflow-hidden">
         <div className="marquee-track flex gap-5 pl-6 pr-6">
           {loop.map((t, i) => (
             <Card key={i} t={t} />
